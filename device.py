@@ -1,12 +1,17 @@
 import csv
+import json
+import urllib2
 
-f = open('devices.csv')
-csv_file = csv.reader(f)
 
-print_device = []
-for row in csv_file:
-    print_device.append(row[3])
+with open('devices.csv', "rb") as devices_source:
+    reader = csv.reader(devices_source)
+    devices = [row for row in reader]
 
-print print_device
+data = {"X-CH-Auth-Email": "brandon@brandonbianchi.com",
+        "X-CH-Auth-API-Token": "6c079ba92b2a8fe5977519f6859ecf80",
+        "devices": devices}
 
-f.close()
+req = urllib2.Request('https://cloudhelix.com/api/v1/device/create')
+req.add_header('Content-Type', 'application/json; charset=utf-8')
+
+response = urllib2.urlopen(req, json.dumps(data))
