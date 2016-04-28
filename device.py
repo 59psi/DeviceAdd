@@ -7,8 +7,10 @@ with open('devices.csv', "rb") as devices_source:
     devices = [row for row in reader]
 
 url = 'https://cloudhelix.com/api/v1/device/create'
-headers = {"X-CH-Auth-Email": "brandon@brandonbianchi.com",
-           "X-CH-Auth-API-Token": "6c079ba92b2a8fe5977519f6859ecf80",
+email = raw_input("Portal Email Address: ")
+api = raw_input("Portal API Token: ")
+headers = {"X-CH-Auth-Email": email,
+           "X-CH-Auth-API-Token": api,
            "Content-Type": "application/json; charset=utf-8"}
 
 for device in devices:
