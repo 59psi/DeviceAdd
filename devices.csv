@@ -48,3 +48,4 @@ xrt47.dc,xrt47,router,sflow,512,10.0.0.47
 xrt48.dc,xrt48,router,sflow,512,10.0.0.48
 xrt49.dc,xrt49,router,sflow,512,10.0.0.49
 xrt50.dc,xrt50,router,sflow,512,10.0.0.50
+xrt51.dc,xrt51,router,sflow,512,10.0.0.51
