@@ -14,3 +14,4 @@ headers = {"X-CH-Auth-Email": "brandon@brandonbianchi.com",
 
 response = requests.post(url, data=json.dumps(payload), headers=headers)
 print response.content
+print devices
