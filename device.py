@@ -12,13 +12,6 @@ headers = {"X-CH-Auth-Email": "brandon@brandonbianchi.com",
            "Content-Type": "application/json; charset=utf-8"}
 
 for device in devices:
-    device_name = device[0]
-    device_description = device[1]
-    type = device[2]
-    flow_type = device[3]
-    flow_rate = device[4]
-    other_ips = device[5]
-    somecsv = ",".join(device)
     payload = {
         'device_name': device[0],
         'device_description': device[1],
@@ -27,7 +20,8 @@ for device in devices:
         'flow_rate': device[4],
         'other_ips': device[5]
     }
-    print payload
+    json_data = json.dumps(payload)
+    r = requests.post(url, data=json_data, headers=headers)
+    print device[0], r.content
 
-r = requests.post(url, data=json.dumps(payload), headers=headers)
-print r
+print "added %s devices" % len(devices)
